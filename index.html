@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO e descrição da página -->
+    <meta name="description" content="Restaurante Termo - Experiência gastronômica única com pratos tradicionais e contemporâneos">
+    <meta name="keywords" content="restaurante, comida, gastronomia, termo">
+    <title>Restaurante Termo - Gastronomia de Excelência</title>
+    
+    <!-- Pré-carregamento de recursos críticos para performance -->
+    <link rel="preload" href="assets/css/critical.css" as="style">
+    <link rel="preload" href="assets/css/main.css" as="style">
+    
+    <!-- CSS crítico carregado inline para renderização mais rápida -->
+    <link rel="stylesheet" href="assets/css/critical.css">
+    
+    <!-- CSS não-crítico carregado de forma assíncrona -->
+    <link rel="stylesheet" href="assets/css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
+    
+    <!-- Ícone da página (favicon) -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Dicas de performance para navegador -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Link de pulo para acessibilidade - permite usuários de screen reader pular direto ao conteúdo -->
+    <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+    
+    <!-- Cabeçalho da página -->
+    <header class="header" role="banner">
+        <!-- Barra de navegação principal -->
+        <nav class="navbar" role="navigation" aria-label="Menu principal">
+
+            
+            <div class="container">
+                <!-- Logo e marca do restaurante -->
+                <div class="navbar-brand">
+                    <a href="#" class="logo" aria-label="Restaurante Termo - Página inicial">
+                        <h1>Restaurante Termo</h1>
+                    </a>
+                </div>                
+                <!-- Botão hambúrguer para menu mobile -->
+                <button class="navbar-toggle" aria-label="Abrir menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <!-- Menu de navegação -->
+                <ul class="navbar-menu" role="menubar">
+                    <li role="none"><a href="#inicio" role="menuitem">Início</a></li>
+                    <li role="none"><a href="#sobre" role="menuitem">Sobre</a></li>
+                    <li role="none"><a href="#cardapio" role="menuitem">Cardápio</a></li>
+                    <li role="none"><a href="#contato" role="menuitem">Contato</a></li>
+                    <li role="none"><a href="#reservas" role="menuitem" class="btn-reserva">Reservas</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal da página -->
+    <main id="main-content" role="mai n">
+        <!-- Seção Hero (banner principal) -->
+        <section id="inicio" class="hero" aria-labelledby="hero-title">
+            <!-- Conteúdo textual do hero -->
+            <div class="hero-content">
+                <h2 id="hero-title" class="hero-title">
+                    Experiência Gastronômica <span class="highlight">Única</span>
+                </h2>
+                <p class="hero-subtitle">
+                    Descubra sabores autênticos em um ambiente acolhedor e sofisticado
+                </p>
+                <!-- Botões de ação principais -->
+                <div class="hero-actions">
+                    <a href="#cardapio" class="btn btn-primary">Ver Cardápio</a>
+                    <a href="#reservas" class="btn btn-secondary">Fazer Reserva</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sobre Nós -->
+        <section id="sobre" class="about" aria-labelledby="about-title">
+            <div class="container">
+                <h2 id="about-title" class="section-title">Nossa História</h2>
+                <div class="about-content">
+                    <!-- Texto sobre a história do restaurante -->
+                    <div class="about-text">
+                        <p>
+                            Há mais de duas décadas, o Restaurante Termo tem sido sinônimo de excelência 
+                            gastronômica, combinando tradição familiar com inovação culinária.
+                        </p>
+                        <p>
+                            Nossa paixão pela gastronomia se reflete em cada prato, cuidadosamente 
+                            preparado com ingredientes frescos e técnicas refinadas.
+                        </p>
+                    </div>
+                    <!-- Estatísticas animadas do restaurante -->
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <!-- Número animado (data-count define o valor final) -->
+                            <span class="stat-number" data-count="25">0</span>
+                            <span class="stat-label">Anos de História</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="1722">0</span>
+                            <span class="stat-label">Clientes Satisfeitos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50">0</span>
+                            <span class="stat-label">Pratos Únicos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção do Cardápio -->
+        <section id="cardapio" class="menu" aria-labelledby="menu-title">
+            <div class="container">
+                <h2 id="menu-title" class="section-title">Nosso Cardápio</h2>
+                
+                <!-- Filtros para categorias do cardápio -->
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="entradas">Entradas</button>
+                    <button class="filter-btn" data-filter="pratos-principais">Pratos Principais</button>
+                    <button class="filter-btn" data-filter="sobremesas">Sobremesas</button>
+                    <button class="filter-btn" data-filter="bebidas">Bebidas</button>
+                </div>
+
+                <!-- Grid onde os itens do menu serão inseridos dinamicamente -->
+                <div class="menu-grid" id="menu-grid">
+                    <!-- Menu items will be loaded dynamically -->
+                </div>
+                
+                <!-- Indicador de carregamento do cardápio -->
+                <div class="menu-loading" id="menu-loading" aria-hidden="true">
+                    <div class="spinner"></div>
+                    <p>Carregando cardápio...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Contato -->
+        <section id="contato" class="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" class="section-title">Entre em Contato</h2>
+                <div class="contact-content">
+                    <!-- Informações de contato do restaurante -->
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3>Endereço</h3>
+                            <p>Rua das Flores, 123<br>Centro, São Paulo - SP</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Telefone</h3>
+                            <!-- Link clicável para discagem -->
+                            <p><a href="tel:+5511999999999">(11) 99999-9999</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Horário</h3>
+                            <p>Ter-Dom: 18h às 23h<br>Segunda: Fechado</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulário de contato com validação -->
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <!-- Campo obrigatório com descrição de erro para acessibilidade -->
+                            <input type="text" id="name" name="name" required aria-describedby="name-error">
+                            <!-- Mensagem de erro dinâmica -->
+                            <span class="error-message" id="name-error" aria-live="polite"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required aria-describedby="email-error">
+                            <span class="error-message" id="email-error" aria-live="polite"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+                            <span class="error-message" id="message-error" aria-live="polite"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal para Reservas -->
+        <div id="reservation-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-content">
+                <!-- Cabeçalho do modal -->
+                <div class="modal-header">
+                    <h3 id="modal-title">Fazer Reserva</h3>
+                    <!-- Botão para fechar modal -->
+                    <button class="modal-close" aria-label="Fechar">&times;</button>
+                </div>
+                <!-- Formulário de reservas -->
+                <form class="reservation-form" id="reservation-form">
+                    <!-- Linha com dois campos lado a lado -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="res-name">Nome</label>
+                            <input type="text" id="res-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="res-phone">Telefone</label>
+                            <input type="tel" id="res-phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Linha com data e horário -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="res-date">Data</label>
+                            <!-- Campo de data com restrições automáticas -->
+                            <input type="date" id="res-date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="res-time">Horário</label>
+                            <!-- Select com horários disponíveis -->
+                            <select id="res-time" name="time" required>
+                                <option value="">Selecione</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="21:00">21:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Campo para número de pessoas -->
+                    <div class="form-group">
+                        <label for="res-guests">Número de pessoas</label>
+                        <select id="res-guests" name="guests" required>
+                            <option value="">Selecione</option>
+                            <option value="1">1 pessoa</option>
+                            <option value="2">2 pessoas</option>
+                            <option value="3">3 pessoas</option>
+                            <option value="4">4 pessoas</option>
+                            <option value="5+">5+ pessoas</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé da página -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Marca e slogan do restaurante -->
+                <div class="footer-brand">
+                    <h3>Restaurante Termo</h3>
+                    <p>Gastronomia de excelência desde 1999</p>
+                </div>
+                
+                <!-- Links úteis de navegação -->
+                <div class="footer-links">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#cardapio">Cardápio</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#reservas">Reservas</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Redes sociais -->
+                <div class="footer-social">
+                    <h4>Siga-nos</h4>
+                    <div class="social-links">
+                        <!-- Emojis como placeholder para ícones de redes sociais -->
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="WhatsApp">📱</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Linha de copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Restaurante Termo. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript carregados com defer para melhor performance -->
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

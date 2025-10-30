@@ -1,0 +1,55 @@
+{
+  "name": "restaurante-termo",
+  "version": "1.0.0",
+  "description": "Website moderno para restaurante com foco em performance e UX",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "dev": "npx live-server --port=3000 --open=/",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "npx cssnano assets/css/main.css assets/css/main.min.css",
+    "minify-js": "npx terser assets/js/main.js -o assets/js/main.min.js",
+    "lighthouse": "npx lighthouse http://localhost:3000 --view",
+    "test-performance": "npx lighthouse http://localhost:3000 --only-categories=performance --chrome-flags='--headless'",
+    "validate-html": "npx html-validate index.html",
+    "format": "npx prettier --write \"**/*.{html,css,js,md}\"",
+    "lint-css": "npx stylelint \"assets/css/*.css\"",
+    "lint-js": "npx eslint assets/js/main.js"
+  },
+  "keywords": [
+    "restaurant",
+    "website",
+    "performance",
+    "responsive",
+    "accessibility",
+    "vanilla-js",
+    "css3",
+    "html5"
+  ],
+  "author": "ghostICR1_dev",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1",
+    "live-server": "^1.2.2",
+    "lighthouse": "^11.4.0",
+    "cssnano": "^6.0.3",
+    "terser": "^5.26.0",
+    "html-validate": "^8.8.0",
+    "prettier": "^3.1.1",
+    "stylelint": "^16.1.0",
+    "eslint": "^8.56.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/restaurante-termo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seu-usuario/restaurante-termo/issues"
+  },
+  "homepage": "https://seu-usuario.github.io/restaurante-termo/"
+}

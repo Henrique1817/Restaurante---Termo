@@ -1,0 +1,617 @@
+/* CSS Principal - Estilos não-críticos carregados de forma assíncrona */
+
+/* Tipografia e títulos de seção */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50; /* Azul escuro */
+    position: relative; /* Para posicionar pseudo-elemento */
+}
+
+/* Linha decorativa abaixo dos títulos */
+.section-title::after {
+    content: ''; /* Pseudo-elemento vazio */
+    position: absolute;
+    bottom: -10px; /* Posiciona abaixo do texto */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino da centralização */
+    width: 60px; /* Largura da linha */
+    height: 3px; /* Altura da linha */
+    background: #e74c3c; /* Cor vermelha */
+}
+
+/* Seção Sobre Nós */
+.about {
+    padding: 80px 0; /* Espaçamento vertical */
+    background: #f8f9fa; /* Fundo cinza claro */
+}
+
+/* Layout em grid da seção sobre */
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Texto ocupa 2/3, stats 1/3 */
+    gap: 4rem; /* Espaço entre colunas */
+    align-items: center; /* Alinha verticalmente */
+}
+
+/* Estilo do texto sobre */
+.about-text {
+    font-size: 1.1rem; /* Ligeiramente maior que o padrão */
+    line-height: 1.8; /* Altura de linha para legibilidade */
+    color: #555; /* Cinza médio */
+}
+
+/* Espaçamento entre parágrafos */
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+/* Container das estatísticas */
+.about-stats {
+    display: grid;
+    gap: 2rem; /* Espaço entre items */
+}
+
+/* Card individual de estatística */
+.stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: white; /* Fundo branco */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease; /* Transição para hover */
+}
+
+/* Efeito hover nos cards de estatística */
+.stat-item:hover {
+    transform: translateY(-5px); /* Move para cima */
+}
+
+/* Número da estatística */
+.stat-number {
+    display: block;
+    font-size: 2.5rem; /* Tamanho grande */
+    font-weight: 700; /* Negrito */
+    color: #e74c3c; /* Cor vermelha */
+    margin-bottom: 0.5rem;
+}
+
+/* Label da estatística */
+.stat-label {
+    color: #666; /* Cinza médio */
+    font-weight: 500; /* Peso médio */
+}
+
+/* Seção do Cardápio */
+.menu {
+    padding: 80px 0;
+    background: white; /* Fundo branco para contraste */
+}
+
+/* Botões de filtro do cardápio */
+.menu-filters {
+    display: flex;
+    justify-content: center; /* Centraliza botões */
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap; /* Quebra linha se necessário */
+}
+
+/* Estilo dos botões de filtro */
+.filter-btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid #e74c3c; /* Borda vermelha */
+    color: #e74c3c;
+    border-radius: 25px; /* Bordas bem arredondadas */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transição suave */
+    font-weight: 500;
+}
+
+/* Estado hover e ativo dos filtros */
+.filter-btn:hover,
+.filter-btn.active {
+    background: #e74c3c; /* Inverte cores */
+    color: white;
+}
+
+/* Grid responsivo dos itens do menu */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas flexíveis */
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Card individual do item do menu */
+.menu-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden; /* Esconde overflow das bordas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0; /* Inicia invisível para animação */
+    transform: translateY(20px); /* Posição inicial da animação */
+}
+
+/* Estado visível do item (após animação) */
+.menu-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efeito hover do item do menu */
+.menu-item:hover {
+    transform: translateY(-5px); /* Move para cima */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+}
+
+.menu-item-image {
+    height: 200px;
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 3rem;
+}
+
+.menu-item-content {
+    padding: 1.5rem;
+}
+
+.menu-item-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.menu-item-description {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.menu-item-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e74c3c;
+}
+
+.menu-loading {
+    text-align: center;
+    padding: 2rem;
+    display: none;
+}
+
+.menu-loading.show {
+    display: block;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #e74c3c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Seção de Contato */
+.contact {
+    padding: 80px 0;
+    background: #2c3e50; /* Fundo azul escuro */
+    color: white;
+}
+
+/* Título da seção de contato */
+.contact .section-title {
+    color: white; /* Força cor branca */
+}
+
+/* Grid de duas colunas do contato */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+    gap: 4rem;
+    align-items: start; /* Alinha ao topo */
+}
+
+/* Informações de contato */
+.contact-info {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Títulos dos itens de contato */
+.contact-item h3 {
+    color: #e74c3c; /* Vermelho de destaque */
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Parágrafos dos itens de contato */
+.contact-item p {
+    line-height: 1.6; /* Altura da linha legível */
+}
+
+/* Links nos itens de contato */
+.contact-item a {
+    color: white;
+    text-decoration: none; /* Remove sublinhado */
+}
+
+/* Hover dos links de contato */
+.contact-item a:hover {
+    color: #e74c3c; /* Muda para vermelho no hover */
+}
+
+/* Forms */
+.contact-form,
+.reservation-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #ecf0f1;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 12px;
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    background: #34495e;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #bdc3c7;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.form-group.error .error-message {
+    display: block;
+}
+
+.form-group.error input,
+.form-group.error textarea,
+.form-group.error select {
+    border-color: #e74c3c;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+    color: #2c3e50;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: #e74c3c;
+}
+
+.reservation-form .form-group label {
+    color: #333;
+}
+
+.reservation-form input,
+.reservation-form select {
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.reservation-form input:focus,
+.reservation-form select:focus {
+    border-color: #e74c3c;
+}
+
+/* Footer */
+.footer {
+    background: #1a252f;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand h3 {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    color: #bdc3c7;
+}
+
+.footer-links h4,
+.footer-social h4 {
+    margin-bottom: 1rem;
+    color: #ecf0f1;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #e74c3c;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #34495e;
+    color: #bdc3c7;
+}
+
+/* Animations and transitions */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    
+    .menu-filters {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .modal-content {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 200px;
+    }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode styles if needed */
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .hero-actions,
+    .menu-filters,
+    .contact-form,
+    .modal,
+    .footer {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .section-title {
+        font-size: 18pt;
+        margin-bottom: 12pt;
+    }
+}

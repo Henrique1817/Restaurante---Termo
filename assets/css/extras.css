@@ -1,0 +1,150 @@
+/* Estilos de placeholder para imagens e ícones */
+
+/* Placeholder da imagem hero */
+.hero-image::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(45deg, #f39c12, #e74c3c); /* Gradiente laranja-vermelho */
+    background-image: 
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 2px, transparent 2px),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.2) 1px, transparent 1px); /* Pontos decorativos */
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Emoji de placeholder na imagem hero */
+.hero-image::after {
+    content: '🍽️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza perfeitamente */
+    font-size: 4rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Sombra no emoji */
+}
+
+/* Placeholder das imagens dos itens do menu */
+.menu-item-image {
+    background: linear-gradient(135deg, #ecf0f1, #bdc3c7); /* Gradiente cinza */
+    position: relative;
+    overflow: hidden; /* Esconde overflow dos efeitos */
+}
+
+/* Efeitos decorativos nas imagens do menu */
+.menu-item-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(155, 89, 182, 0.1) 0%, transparent 50%); /* Círculos coloridos suaves */
+}
+
+/* Favicon como data URI (ícone simples de restaurante) */
+/* Adicione isto ao head do seu HTML: */
+/*
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iI2U3NGMzYyIvPgo8cGF0aCBkPSJNOCAxMmg0djRIOHYtNHptMCA2aDR2NEg4di00em02LTZoNHY0aC00di00em0wIDZoNHY0aC00di00em02LTZoNHY0aC00di00em0wIDZoNHY0aC00di00eiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K">
+*/
+
+/* Loading animation for better UX */
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.loading-shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e74c3c;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c0392b;
+}
+
+/* Focus styles for better accessibility */
+*:focus {
+    outline: 2px solid #e74c3c;
+    outline-offset: 2px;
+}
+
+.btn:focus,
+.filter-btn:focus {
+    outline: 2px solid #fff;
+    box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.3);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn-secondary {
+        border-width: 3px;
+    }
+    
+    .menu-item {
+        border: 2px solid #333;
+    }
+    
+    .navbar-menu a:hover {
+        background: #e74c3c;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 3px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .spinner {
+        animation: none;
+    }
+    
+    .loading-shimmer {
+        animation: none;
+        background: #f0f0f0;
+    }
+    
+    .fade-in {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Print optimization */
+@media print {
+    .hero-image,
+    .menu-item-image {
+        break-inside: avoid;
+    }
+    
+    .menu-item {
+        break-inside: avoid;
+        margin-bottom: 1cm;
+    }
+    
+    .contact-info {
+        font-size: 14pt;
+    }
+}

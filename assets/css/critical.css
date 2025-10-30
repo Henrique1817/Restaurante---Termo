@@ -1,0 +1,309 @@
+/* CSS Crítico - Estilos above-the-fold para renderização mais rápida */
+
+/* Reset e estilos base */
+/* Remove margens e paddings padrão do navegador para controle total */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Inclui padding e border no tamanho total */
+    margin: 0;
+    padding: 0;
+}
+
+/* Configurações básicas do HTML */
+html {
+    font-size: 16px; /* Base para cálculos rem */
+    scroll-behavior: smooth; /* Scroll suave para âncoras */
+}
+
+/* Estilos base do body */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6; /* Altura de linha para boa legibilidade */
+    color: #333;
+     /* Cor principal do texto */
+    background-color: #fff; /* Fundo branco padrão */
+}
+
+/* Link de pulo para acessibilidade */
+/* Permite usuários de screen reader pularem direto para o conteúdo */
+.skip-link {
+    position: absolute;
+    top: -40px; /* Escondido por padrão */
+    left: 6px;
+
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000; /* Fica acima de outros elementos */
+}
+
+/* Aparece quando recebe foco via teclado */
+.skip-link:focus {
+    top: 6px; /* Torna-se visível */
+}
+
+/* Cabeçalho e navegação - crítico para primeiro paint */
+/* Header fixo que permanece no topo ao fazer scroll */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background: rgba(255, 255, 255, 0.95); /* Fundo semi-transparente */
+    backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
+    z-index: 100; /* Fica acima do conteúdo */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Container para centralizar conteúdo */
+.container {
+    max-width: auto; /* Largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 0 20px; /* Espaçamento lateral */
+}
+
+/* Barra de navegação flexível */
+.navbar {
+    height: 70px; /* Altura fixa */
+}
+
+/* Container dentro da navbar com layout flex */
+.navbar .container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Logo à esquerda, menu à direita */
+    height: 100%; /* Usa toda altura da navbar */
+    gap: 2rem; /* Espaço entre itens */
+}
+
+/* Estilo do logo */
+.logo h1 {
+    font-size: 1.5rem;
+    color: #2c3e50; /* Cor azul escura */
+    text-decoration: none;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #2c3e50; /* Cor azul escura */
+    text-decoration: none;
+    flex-shrink: 0; /* Impede que encolha */
+}
+
+/* Botão hambúrguer para menu mobile */
+/* Escondido por padrão, aparece apenas no mobile */
+.navbar-toggle {
+    display: none;
+     /* Oculto no desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column; /* Empilha as linhas verticalmente */
+    padding: 5px;
+}
+
+/* Linhas do ícone hambúrguer */
+.hamburger {
+    width: 25px;
+    height: 3px;
+
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s; /* Transição suave para animação */
+}
+
+/* Menu de navegação horizontal */
+.navbar-menu {
+    display: flex;
+    list-style: none; /* Remove bullets da lista */
+    gap: 2rem; /* Espaço entre itens */
+    align-items: center;
+    margin: 0; /* Remove margem padrão da lista */
+}
+
+/* Estilo dos links de navegação */
+.navbar-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500; /* Peso médio da fonte */
+    transition: color 0.3s ease; /* Transição suave na cor */
+}
+
+/* Efeito hover nos links */
+.navbar-menu a:hover {
+    color: #e74c3c; /* Cor vermelha no hover */
+}
+
+/* Botão especial de reservas */
+.btn-reserva {
+    background:
+     #e74c3c !important; /* Força aplicação da cor */
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Seção hero - crítica acima da dobra */
+/* Área principal que aparece primeiro na tela */
+.hero {
+    min-height: 100vh; /* Altura mínima da tela toda */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    padding: 70px 20px 0; /* Compensa altura do header fixo */
+    background: url("/assets/images/Salmao.jpg");
+    background-size: cover; /* Cobre todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Remove repetição da imagem */
+}
+
+/* Conteúdo textual do hero */
+.hero-content {
+    flex: 1; /* Ocupa espaço disponível */
+    max-width: 600px; /* Largura máxima para legibilidade */
+    padding-right: 2rem; /* Espaço da imagem */
+}
+
+/* Título principal com tamanho responsivo */
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Tamanho fluido baseado na tela */
+    font-weight: 700; /* Negrito */
+    line-height: 1.2; /* Altura de linha compacta */
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    padding: 10px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)); /* Fundo semi-transparente */
+}
+
+/* Palavra destacada no título */
+.highlight {
+    color: #ff0000; /* Cor vermelha para destaque */
+}
+
+/* Subtítulo descritivo */
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #252525; /* Cor mais suave */
+    margin-bottom: 2rem;
+    line-height: 1.5; /* Altura de linha para legibilidade */
+}
+
+/* Container dos botões de ação */
+.hero-actions {
+    display: flex;
+    gap: 1rem; /* Espaço entre botões */
+    flex-wrap: wrap; /* Quebra linha se necessário */
+}
+
+/* Estilo base para botões */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 5px; /* Bordas arredondadas */
+    text-decoration: none;
+    font-weight: 600; /* Texto em negrito */
+    text-align: center;
+    transition: all 0.3s ease; /* Transições suaves */
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Botão primário (destaque) */
+.btn-primary {
+    background:
+     #e74c3c; /* Fundo vermelho */
+    color: white;
+}
+
+/* Efeito hover do botão primário */
+.btn-primary:hover {
+    background: #c0392b; /* Vermelho mais escuro */
+    transform: translateY(-2px); /* Leve movimento para cima */
+}
+
+/* Botão secundário (contorno) */
+.btn-secondary {
+    background:
+     transparent;
+    color: #e74c3c;
+    border: 2px solid #e74c3c; /* Borda vermelha */
+}
+
+/* Efeito hover do botão secundário */
+.btn-secondary:hover {
+    background
+    : #e74c3c; /* Inverte cores */
+    color: white;
+}
+
+/* Container da imagem hero */
+.hero-image {
+    flex: 1; /* Ocupa espaço restante */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+/* Imagem responsiva */
+.hero-image img {
+    max-width: 100%; /* Não excede container */
+    height: auto; /* Mantém proporção */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Design responsivo - crítico para mobile */
+/* Media query para telas menores que 768px */
+@media (max-width: 768px) {
+    /* Mostra botão hambúrguer no mobile */
+    .navbar-toggle {
+        display: flex; /* Torna visível */
+    }
+    
+    /* Menu mobile com animação */
+    .navbar-menu {
+        position: absolute;
+        top: 100%; /* Posiciona abaixo do header */
+        left: 0;
+        right: 0;
+
+        background: white;
+        flex-direction: column; /* Empilha itens verticalmente */
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+        transform: translateY(-100%); /* Escondido acima */
+        opacity: 0; /* Transparente */
+        visibility: hidden; /* Não clicável */
+        transition: all 0.3s ease; /* Transição suave */
+    }
+    
+    /* Menu ativo (visível) */
+    .navbar-menu.active {
+        transform: translateY(0); /* Posição normal */
+        opacity: 1; /* Opaco */
+        visibility: visible; /* Clicável */
+    }
+    
+    /* Layout do hero no mobile */
+    .hero {
+        flex-direction: column; /* Empilha verticalmente */
+        text-align: center; /* Centraliza texto */
+        padding: 90px 20px 50px; /* Ajusta padding */
+    }
+    
+    /* Conteúdo hero no mobile */
+    .hero-content {
+        padding-right: 0; /* Remove padding lateral */
+        margin-bottom: 2rem; /* Espaço da imagem */
+    }
+    
+    /* Botões centralizados no mobile */
+    .hero-actions {
+        justify-content: center; /* Centraliza botões */
+    }
+}
