@@ -14,6 +14,8 @@
 html {
     font-size: 16px; /* Base para cálculos rem */
     scroll-behavior: smooth; /* Scroll suave para âncoras */
+    overflow-x: hidden; /* Evita scroll lateral */
+    overscroll-behavior-y: contain; /* Evita bounce além do conteúdo */
 }
 
 /* Estilos base do body */
@@ -23,6 +25,7 @@ body {
     color: #333;
      /* Cor principal do texto */
     background-color: #fff; /* Fundo branco padrão */
+    overflow-x: hidden; /* Garante que não haja rolagem horizontal */
 }
 
 /* Link de pulo para acessibilidade */
@@ -61,7 +64,7 @@ body {
 
 /* Container para centralizar conteúdo */
 .container {
-    max-width: auto; /* Largura máxima */
+    max-width: 1200px; /* Largura máxima */
     margin: 0 auto; /* Centraliza horizontalmente */
     padding: 0 20px; /* Espaçamento lateral */
 }
@@ -154,7 +157,10 @@ body {
     display: flex;
     align-items: center; /* Centraliza verticalmente */
     padding: 70px 20px 0; /* Compensa altura do header fixo */
-    background: url("/assets/images/Salmao.jpg");
+    /* Gradiente translúcido sobre a imagem para legibilidade do texto */
+    background:
+        linear-gradient(0deg, rgba(255,255,255,0.88), rgba(255,255,255,0.88)),
+        url("/assets/images/Salmao.jpg");
     background-size: cover; /* Cobre todo o espaço */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Remove repetição da imagem */

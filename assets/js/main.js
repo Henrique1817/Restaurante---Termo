@@ -41,7 +41,8 @@
             description: "Salmão fresco grelhado com ervas finas e acompanhamentos sazonais",
             price: "R$ 68,00",
             category: "pratos-principais",
-            image: "🐟"
+            imgSrc: "/assets/images/Salmao.jpg",
+            imgAlt: "Prato de salmão grelhado com ervas"
         },
         {
             id: 2,
@@ -49,7 +50,8 @@
             description: "Risotto cremoso com mix de cogumelos frescos e parmesão",
             price: "R$ 52,00",
             category: "pratos-principais",
-            image: "🍄"
+            imgSrc: "assets/images/Cogu.png",
+            imgAlt: "Risotto cremoso com cogumelos"
         },
         {
             id: 3,
@@ -57,7 +59,9 @@
             description: "Trio de bruschettas com tomate, burrata e tapenade de azeitona",
             price: "R$ 28,00",
             category: "entradas",
-            image: "🍅"
+            image: "🍅",
+            imgSrc: "assets/images/dishes/dish-3.svg",
+            imgAlt: "Trio de bruschettas variadas"
         },
         {
             id: 4,
@@ -65,7 +69,9 @@
             description: "Fatias finas de carne bovina com rúcula e parmesão",
             price: "R$ 35,00",
             category: "entradas",
-            image: "🥩"
+            image: "🥩",
+            imgSrc: "assets/images/dishes/dish-4.svg",
+            imgAlt: "Carpaccio de carne com rúcula"
         },
         {
             id: 5,
@@ -73,7 +79,9 @@
             description: "Sobremesa italiana tradicional com café e mascarpone",
             price: "R$ 22,00",
             category: "sobremesas",
-            image: "🍰"
+            image: "🍰",
+            imgSrc: "assets/images/dishes/dish-5.svg",
+            imgAlt: "Tiramisù tradicional"
         },
         {
             id: 6,
@@ -81,7 +89,9 @@
             description: "Panna cotta cremosa com calda de frutas vermelhas",
             price: "R$ 18,00",
             category: "sobremesas",
-            image: "🍓"
+            image: "🍓",
+            imgSrc: "assets/images/dishes/dish-6.svg",
+            imgAlt: "Panna cotta com frutas vermelhas"
         },
         {
             id: 7,
@@ -390,9 +400,14 @@
         createMenuItem(item) {
             const menuItem = document.createElement('div');
             menuItem.className = `menu-item ${item.category}`;
+            const placeholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='100%25' height='100%25' fill='%23f5f5f5'/%3E%3C/svg%3E";
+            const imgHtml = item.imgSrc
+                ? `<img class="dish-img lazy" src="${placeholder}" data-src="${item.imgSrc}" alt="${item.imgAlt || item.name}" loading="lazy" decoding="async">`
+                : `<div class="emoji-fallback" aria-hidden="true">${item.image || ''}</div>`;
+
             menuItem.innerHTML = `
-                <div class="menu-item-image" aria-hidden="true">
-                    ${item.image}
+                <div class="menu-item-image" aria-hidden="${item.imgSrc ? 'false' : 'true'}">
+                    ${imgHtml}
                 </div>
                 <div class="menu-item-content">
                     <h3 class="menu-item-title">${item.name}</h3>
@@ -805,6 +820,12 @@
                 // Observa todas as imagens com atributo data-src
                 document.querySelectorAll('img[data-src]').forEach(img => {
                     imageObserver.observe(img);
+                });
+            } else {
+                // Fallback para navegadores antigos: carrega imediatamente
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
                 });
             }
         },
