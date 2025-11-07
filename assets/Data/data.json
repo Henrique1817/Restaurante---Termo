@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Salmão Grelhado",
+        "description": "Salmão fresco grelhado com ervas finas e acompanhamentos sazonais",
+        "price": "R$ 68,00",
+        "category": "pratos-principais",
+        "imgSrc": "assets/images/Salmao.jpg",
+        "imgAlt": "Prato de salmão grelhado com ervas"
+    },
+    {
+        "id": 2,
+        "name": "Risotto de Cogumelos",
+        "description": "Risotto cremoso com mix de cogumelos frescos e parmesão",
+        "price": "R$ 52,00",
+        "category": "pratos-principais",
+        "imgSrc": "assets/images/Cogu.png",
+        "imgAlt": "Risotto cremoso com cogumelos"
+    },
+    {
+        "id": 3,
+        "name": "Bruschetta Trio",
+        "description": "Trio de bruschettas com tomate, burrata e tapenade de azeitona",
+        "price": "R$ 28,00",
+        "category": "entradas",
+        "imgSrc": "assets/images/Bruschetta.png",
+        "imgAlt": "Trio de bruschettas variadas"
+    },
+    {
+        "id": 4,
+        "name": "Carpaccio de Carne",
+        "description": "Fatias finas de carne bovina com rúcula e parmesão",
+        "price": "R$ 35,00",
+        "category": "entradas",
+        "imgSrc": "assets/images/Carpaccio.png",
+        "imgAlt": "Carpaccio de carne com rúcula"
+    },
+    {
+        "id": 5,
+        "name": "Tiramisu Clássico",
+        "description": "Sobremesa italiana tradicional com café e mascarpone",
+        "price": "R$ 22,00",
+        "category": "sobremesas",
+        "imgSrc": "assets/images/Tiramisu.png",
+        "imgAlt": "Tiramisù tradicional"
+    },
+    {
+        "id": 6,
+        "name": "Panna Cotta Frutas Vermelhas",
+        "description": "Panna cotta cremosa com calda de frutas vermelhas",
+        "price": "R$ 18,00",
+        "category": "sobremesas",
+        "imgSrc": "assets/images/Panna.png",
+        "imgAlt": "Panna cotta com frutas vermelhas"
+    },
+    {
+        "id": 7,
+        "name": "Vinho Tinto Reserva",
+        "description": "Seleção especial da casa, safra 2020",
+        "price": "R$ 85,00",
+        "category": "bebidas",
+        "imgSrc": "assets/images/Vinho.png",
+        "imgAlt": "Vinho tinto reserva"
+    },
+    {
+        "id": 8,
+        "name": "Suco Natural",
+        "description": "Suco fresco de frutas da estação",
+        "price": "R$ 12,00",
+        "category": "bebidas",
+        "imgSrc": "assets/images/Suco.png",
+        "imgAlt": "Suco natural de frutas"
+    }
+]

@@ -1,0 +1,83 @@
+{
+  // Manifesto do projeto: descreve metadados, scripts e dependências usadas
+  // para desenvolver, testar e preparar o site. O npm/yarn/pnpm leem ESTE arquivo
+  // (a versão sem comentários é package.json). Este .jsonc é só para documentação.
+  "name": "restaurante-termo", // Nome do pacote/projeto
+  "version": "1.0.0", // Versão do projeto (ajuda a versionar releases)
+  "description": "Website moderno para restaurante com foco em performance e UX", // Breve descrição (usada em registries/SEO de pacotes)
+  "main": "index.html", // Arquivo principal (não é usado por npm scripts aqui, mas é um metadado)
+
+  "scripts": {
+    // Scripts de automação: você executa com `npm run <script>`
+    // Exemplos:
+    //  - npm run start           → inicia um servidor estático (porta 3000)
+    //  - npm run dev             → inicia o Live Server com reload automático
+    //  - npm run build           → minifica CSS e JS
+
+    "start": "npx serve . -p 3000", // Servidor estático simples para produção local
+    "dev": "npx live-server --port=3000 --open=/", // Dev server com reload automático
+
+    // Pipeline de build (otimizações)
+    "build": "npm run minify-css && npm run minify-js", // Tarefa composta
+    "minify-css": "npx cssnano assets/css/main.css assets/css/main.min.css", // Minifica CSS principal
+    "minify-js": "npx terser assets/js/main.js -o assets/js/main.min.js", // Minifica JS principal
+
+    // Auditorias e qualidade
+    "lighthouse": "npx lighthouse http://localhost:3000 --view", // Abre relatório Lighthouse no navegador
+    "test-performance": "npx lighthouse http://localhost:3000 --only-categories=performance --chrome-flags='--headless'", // Executa Lighthouse headless focado em performance
+    "validate-html": "npx html-validate index.html", // Valida HTML (boas práticas/erros)
+    "format": "npx prettier --write \"**/*.{html,css,js,md}\"", // Formata código com Prettier
+    "lint-css": "npx stylelint \"assets/css/*.css\"", // Lint de CSS
+    "lint-js": "npx eslint assets/js/main.js" // Lint de JS
+  },
+
+  "keywords": [
+    // Palavras-chave (ajudam na descoberta quando publicado em registries)
+    "restaurant",
+    "website",
+    "performance",
+    "responsive",
+    "accessibility",
+    "vanilla-js",
+    "css3",
+    "html5"
+  ],
+
+  "author": "ghostICR1_dev", // Autor do projeto
+  "license": "MIT", // Licença (define direitos/obrigações de uso)
+
+  "devDependencies": {
+    // Dependências de DESENVOLVIMENTO (não são necessárias para rodar o site em produção
+    // estática; servem para ferramentas de build, lint, formatação e servidores locais)
+    "serve": "^14.2.1", // Servidor HTTP estático
+    "live-server": "^1.2.2", // Dev server com reload
+    "lighthouse": "^11.4.0", // Auditoria de performance/SEO/A11y
+    "cssnano": "^6.0.3", // Minificador de CSS
+    "terser": "^5.26.0", // Minificador de JS
+    "html-validate": "^8.8.0", // Validador de HTML
+    "prettier": "^3.1.1", // Formatador de código
+    "stylelint": "^16.1.0", // Linter de CSS
+    "eslint": "^8.56.0" // Linter de JS
+  },
+
+  "browserslist": [
+    // Alvo de compatibilidade de navegadores para ferramentas que suportam
+    // (ex.: Autoprefixer, Babel). Aqui preferimos navegadores modernos.
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+
+  "repository": {
+    // Metadados do repositório git (aparece em registries e ferramentas CI/CD)
+    "type": "git",
+    "url": "https://github.com/Henrique1817/Restaurante---Termo"
+  },
+
+  "bugs": {
+    // Onde reportar issues/bugs
+    "url": "https://github.com/Henrique1817/Restaurante---Termo/issues"
+  },
+
+  "homepage": "https://Henrique1817.github.io/Restaurante---Termo/" // Página do projeto (ex.: GitHub Pages)
+}

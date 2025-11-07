@@ -35,7 +35,7 @@
     <!-- Cabeçalho da página -->
     <header class="header" role="banner">
         <!-- Barra de navegação principal -->
-        <nav class="navbar" role="navigation" aria-label="Menu principal">
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
 
             
             <div class="container">
@@ -45,6 +45,9 @@
                         <h1>Restaurante Termo</h1>
                     </a>
                 </div>                
+                <!-- Alternador de tema (claro/escuro) -->
+                <!-- <button class="theme-toggle" aria-label="Alternar tema" title="Alternar tema">🌓</button> -->
+
                 <!-- Botão hambúrguer para menu mobile -->
                 <button class="navbar-toggle" aria-label="Abrir menu" aria-expanded="false">
                     <span class="hamburger"></span>
@@ -185,6 +188,7 @@
                             <span class="error-message" id="email-error" aria-live="polite"></span>
                         </div>
                         
+                        <!-- Textarea no html significa que o usuário pode inserir várias linhas de texto -->
                         <div class="form-group">
                             <label for="message">Mensagem</label>
                             <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
@@ -207,9 +211,11 @@
                     <button class="modal-close" aria-label="Fechar">&times;</button>
                 </div>
                 <!-- Formulário de reservas -->
-                <form class="reservation-form" id="reservation-form">
+                <form class="reservation-form" id="reservation-form" method="POST" novalidate>
                     <!-- Linha com dois campos lado a lado -->
                     <div class="form-row">
+                        <!-- o required faz com que o campo seja obrigatório -->
+                        <!-- o type="tel" indica que o campo deve receber um número de telefone para o navegador -->
                         <div class="form-group">
                             <label for="res-name">Nome</label>
                             <input type="text" id="res-name" name="name" required>
@@ -218,6 +224,10 @@
                             <label for="res-phone">Telefone</label>
                             <input type="tel" id="res-phone" name="phone" required>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="res-email">E-mail</label>
+                        <input type="email" id="res-email" name="email" required>
                     </div>
                     
                     <!-- Linha com data e horário -->
@@ -236,6 +246,8 @@
                                 <option value="19:00">19:00</option>
                                 <option value="20:00">20:00</option>
                                 <option value="21:00">21:00</option>
+                                <option value="22:00">22:00</option>
+                                <option value="23:00">23:00</option>
                             </select>
                         </div>
                     </div>
@@ -249,12 +261,26 @@
                             <option value="2">2 pessoas</option>
                             <option value="3">3 pessoas</option>
                             <option value="4">4 pessoas</option>
-                            <option value="5+">5+ pessoas</option>
+                            <option value="5+">5 pessoas</option>
+                            <option value="6+">6 ou mais pessoas</option>
                         </select>
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
                 </form>
+            </div>
+        </div>
+
+        <!-- Modal de detalhes do prato -->
+        <div id="item-modal" class="modal" role="dialog" aria-labelledby="item-modal-title" aria-hidden="true">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="item-modal-title">Detalhes do Prato</h3>
+                    <button class="modal-close item-modal-close" aria-label="Fechar">&times;</button>
+                </div>
+                <div class="item-modal-body">
+                    <!-- conteúdo preenchido dinamicamente -->
+                </div>
             </div>
         </div>
     </main>
@@ -299,7 +325,21 @@
         </div>
     </footer>
 
+    <!-- EmailJS (CDN) + inicialização -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      // Inicializa com sua Public Key (troque pelo seu valor)
+      document.addEventListener('DOMContentLoaded', function () {
+        if (window.emailjs) {
+          emailjs.init({ publicKey: 'SUA_PUBLIC_KEY_AQUI' });
+        }
+      });
+    </script> -->
+
     <!-- Scripts JavaScript carregados com defer para melhor performance -->
     <script src="assets/js/main.js" defer></script>
+
+    <!-- Botão flutuante voltar ao topo -->
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
 </body>
 </html>
