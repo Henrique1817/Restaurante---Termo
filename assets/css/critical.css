@@ -76,7 +76,6 @@ body {
     top: 0;
     left: 0;
     right: 0;
-
     background: rgba(255, 255, 255, 0.95); /* Fundo semi-transparente */
     backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
     z-index: 100; /* Fica acima do conteúdo */
@@ -104,17 +103,35 @@ body {
     gap: 2rem; /* Espaço entre itens */
 }
 
+/* Alinha logo e nome lado a lado */
+.logo,
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    white-space: nowrap;
+}
+
 /* Estilo do logo */
-.logo h1 {
-    font-size: 1.5rem;
+.logo {
+    position: relative;
+    font-size: 22px;
     color: var(--text); /* Cor do tema */
-    text-decoration: none;
+    text-decoration: none; /* Remove a decoração padrão */
+}
+
+.logo img {
+    height: 40px; /* Altura fixa para o logo */
+    /* margin-right: 10px; Espaço entre imagem e texto */
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: contain;
 }
 
 .navbar-brand {
     font-size: 1.5rem;
     color: var(--text); /* Cor do tema */
-    text-decoration: none; 
+    /* text-decoration: none;  */
     flex-shrink: 0; /* Impede que encolha */
 
 }

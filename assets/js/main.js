@@ -169,6 +169,14 @@
             document.body.style.overflow = 'hidden';
         },
 
+        // Fecha o modal de detalhes do prato
+        closeItemDetails() {
+            if (!DOM.itemModal) return;
+            DOM.itemModal.classList.remove('show');
+            DOM.itemModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        },
+
         // Filtra itens do menu por categoria
         filterMenu(filter) {
             const items = DOM.menuGrid.querySelectorAll('.menu-item');
@@ -474,7 +482,7 @@
     // (Removida segunda definição duplicada de "menu"; agora consolidado acima)
 
     // Funcionalidade do modal
-    // Gerencia abertura, fechamento e comportamento do modal de reservas
+    // Gerencia abertura, fechamento e comportamento do modal de reservas e detalhes do prato
     const modal = {
         // Inicializa eventos do modal
         init() {
@@ -488,6 +496,11 @@
                 DOM.modalClose.addEventListener('click', this.hide.bind(this));
             }
 
+            // Fecha modal de detalhes do prato
+            if (DOM.itemModalClose) {
+                DOM.itemModalClose.addEventListener('click', menu.closeItemDetails.bind(menu));
+            }
+
             // Fecha modal ao clicar no fundo escuro
             if (DOM.reservationModal) {
                 DOM.reservationModal.addEventListener('click', (e) => {
@@ -497,10 +510,26 @@
                 });
             }
 
+            // Fecha modal de detalhes do prato ao clicar no fundo escuro
+            if (DOM.itemModal) {
+                DOM.itemModal.addEventListener('click', (e) => {
+                    if (e.target === DOM.itemModal) {
+                        menu.closeItemDetails();
+                    }
+                });
+            }
+
             // Fecha modal com tecla Escape
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && DOM.reservationModal.classList.contains('show')) {
                     this.hide();
+                }
+            });
+
+            // Fecha modal de detalhes do prato com tecla Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && DOM.itemModal.classList.contains('show')) {
+                    menu.closeItemDetails();
                 }
             });
         },
@@ -517,6 +546,7 @@
                 setTimeout(() => firstInput.focus(), 100);
             }
         },
+
 
         // Esconde o modal de reservas
         hide() {
@@ -769,40 +799,7 @@
                 }, 1000);
             });
         },
-        // async submitReservationForm(data) {
-
-        //     const params = {
-        //     to_email: data.email,                                // cliente que receberá a confirmação
-        //     to_name: data.nome || data.name,                     // nome do cliente
-        //     customer_name: data.nome || data.name,
-        //     customer_email: data.email,
-        //     customer_phone: data.telefone || data.phone,
-        //     reservation_date: data.data || data.date || data['res-date'],
-        //     reservation_time: data.hora || data.time,
-        //     reservation_guests: data.pessoas || data.guests,
-        //     reservation_notes: data.mensagem || data.message || '',
-        //     };
-
-        //     // IDs do seu serviço/template no EmailJS (pegue no painel do EmailJS)
-        //     const SERVICE_ID = 'SEU_SERVICE_ID';
-        //     const TEMPLATE_ID = 'SEU_TEMPLATE_ID';
-
-        //     // Garante que a lib foi carregada; se não, lança erro para cair no catch e exibir mensagem amigável
-        //     if (!window.emailjs) {
-        //       throw new Error('EmailJS não carregado');
-        //     }
         
-        //     // Envia o e‑mail; retorna uma Promise (aguardamos concluir)
-        //     await emailjs.send(SERVICE_ID, TEMPLATE_ID, params);
-        //     // Simula delay de API
-        //     return new Promise((resolve) => {
-        //         setTimeout(() => {
-        //             console.log('Formulário de reserva enviado:', data);
-        //             resolve();
-        //         }, 1000);
-        //     });
-        // },
-
         // Mostra mensagem de sucesso
         showSuccessMessage(message) {
             // Cria e exibe notificação de sucesso
@@ -918,103 +915,47 @@
 
     // UI geral (tema, back-to-top, header em scroll, modal de item)
     // Centraliza pequenos comportamentos de interface global
-    const ui = {
-        init() {
-            this.initTheme(); // Aplica tema salvo e configura alternância
-            this.bindEvents(); // Liga eventos de UI
-        },
+    // const ui = {
+        
+    //     bindEvents() {
+            
+    //         // Rolagem: header scrolled + back-to-top
+    //         const onScroll = utils.throttle(this.handleScroll.bind(this), 100);
+    //         window.addEventListener('scroll', onScroll);
+    //         // Estado inicial
+    //         this.handleScroll();
 
-        // Lê tema do localStorage e aplica no HTML
-        initTheme() {
-            const saved = localStorage.getItem('rt-theme');
-            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = saved || (prefersDark ? 'dark' : 'light');
-            this.applyTheme(theme);
-        },
+    //         // Clique no back-to-top
+    //         if (DOM.backToTop) {
+    //             DOM.backToTop.addEventListener('click', (e) => {
+    //                 e.preventDefault();
+    //                 window.scrollTo({ top: 0, behavior: 'smooth' });
+    //             });
+    //         }
 
-        // Aplica tema no elemento raiz e atualiza botão
-        applyTheme(theme) {
-            const root = document.documentElement;
-            root.setAttribute('data-theme', theme);
-            localStorage.setItem('rt-theme', theme);
-            if (DOM.themeToggle) {
-                const isDark = theme === 'dark';
-                DOM.themeToggle.setAttribute('aria-pressed', String(isDark));
-                DOM.themeToggle.setAttribute('aria-label', isDark ? 'Ativar modo claro' : 'Ativar modo escuro');
-                // Opcional: troca conteúdo do botão (caso seja texto)
-                if (DOM.themeToggle.dataset.icon !== '1') {
-                    DOM.themeToggle.textContent = isDark ? '🌙' : '☀️';
-                }
-            }
-        },
+    //         // Fechar modal do produto pelo botão X (apenas item-modal)
+    //         if (DOM.itemModalClose) {
+    //             DOM.itemModalClose.addEventListener('click', this.closeItemModal.bind(this));
+    //         }
 
-        // Alterna entre claro/escuro
-        toggleTheme() {
-            const current = document.documentElement.getAttribute('data-theme') || 'light';
-            this.applyTheme(current === 'light' ? 'dark' : 'light');
-        },
+    //         // Fechar modal de item clicando fora do conteúdo
+    //         if (DOM.itemModal) {
+    //             DOM.itemModal.addEventListener('click', (e) => {
+    //                 if (e.target === DOM.itemModal) {
+    //                     this.hide();
+    //                 }
+    //             });
+    //         }
 
-        // Exibe/oculta back-to-top e aplica classe no header conforme rolagem
-        handleScroll() {
-            const y = window.scrollY || window.pageYOffset;
-            if (DOM.header) {
-                DOM.header.classList.toggle('scrolled', y > 10);
-            }
-            if (DOM.backToTop) {
-                if (y > 300) DOM.backToTop.classList.add('show');
-                else DOM.backToTop.classList.remove('show');
-            }
-        },
-
-        // Fecha o modal de item (detalhes do prato)
-        closeItemModal() {
-            if (!DOM.itemModal) return;
-            DOM.itemModal.classList.remove('show');
-            DOM.itemModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        },
-
-        bindEvents() {
-            // Alternância de tema
-            if (DOM.themeToggle) {
-                DOM.themeToggle.addEventListener('click', this.toggleTheme.bind(this));
-            }
-
-            // Rolagem: header scrolled + back-to-top
-            const onScroll = utils.throttle(this.handleScroll.bind(this), 100);
-            window.addEventListener('scroll', onScroll);
-            // Estado inicial
-            this.handleScroll();
-
-            // Clique no back-to-top
-            if (DOM.backToTop) {
-                DOM.backToTop.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            }
-
-            // Fechar modal de item por botão X
-            if (DOM.itemModalClose) {
-                DOM.itemModalClose.addEventListener('click', this.closeItemModal.bind(this));
-            }
-            // Fechar modal de item clicando fora do conteúdo
-            if (DOM.itemModal) {
-                DOM.itemModal.addEventListener('click', (e) => {
-                    if (e.target === DOM.itemModal) {
-                        this.closeItemModal();
-                    }
-                });
-            }
-            // Fechar modal de item via ESC
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && DOM.itemModal && DOM.itemModal.classList.contains('show')) {
-                    this.closeItemModal();
-                }
-            });
-        }
-    };
-
+    //         // Fechar item-modal via ESC
+    //         document.addEventListener('keydown', (e) => {
+    //             if (e.key === 'Escape' && DOM.itemModal && DOM.itemModal.classList.contains('show')) {
+    //                 this.hide();
+    //             }
+    //         });
+    //     }
+    // };
+    
     // Monitoramento de performance
     // Implementa otimizações para melhorar velocidade de carregamento
     const performance = {
@@ -1090,7 +1031,7 @@
                 forms.init(); // Sistema de formulários
                 animations.init(); // Sistema de animações
                 performance.init(); // Otimizações de performance
-                ui.init(); // Comportos globais de UI (tema, back-to-top, etc.)
+                // ui.init(); // Comportos globais de UI (tema, back-to-top, etc.)
                 
                 console.log('Website do restaurante inicializado com sucesso');
             } catch (error) {
