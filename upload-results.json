@@ -1,0 +1,44 @@
+﻿[
+    {
+        "file":  "assets/images/Close-up_of_a_202604151856 (1).jpeg",
+        "url":  "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290977209-close-up_of_a_202604151856-1-.jpeg",
+        "via":  "/api/upload",
+        "mime":  "image/jpeg"
+    },
+    {
+        "file":  "assets/images/Close-up_of_a_202604151856.jpeg",
+        "url":  "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290978609-close-up_of_a_202604151856.jpeg",
+        "via":  "/api/upload",
+        "mime":  "image/jpeg"
+    },
+    {
+        "file":  "assets/images/Wide_cinematic_shot_202604151855 (1).jpeg",
+        "url":  "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290982701-wide_cinematic_shot_202604151855-1-.jpeg",
+        "via":  "/api/upload",
+        "mime":  "image/jpeg"
+    },
+    {
+        "file":  "assets/images/Wide_cinematic_shot_202604151855.jpeg",
+        "url":  "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290984187-wide_cinematic_shot_202604151855.jpeg",
+        "via":  "/api/upload",
+        "mime":  "image/jpeg"
+    },
+    {
+        "file":  "assets/images/A_signature_dish_202604151857.jpeg",
+        "url":  "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290985777-a_signature_dish_202604151857.jpeg",
+        "via":  "/api/upload",
+        "mime":  "image/jpeg"
+    },
+    {
+        "file":  "assets/images/A_signature_cocktail_202604151859.jpeg",
+        "url":  "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290987264-a_signature_cocktail_202604151859.jpeg",
+        "via":  "/api/upload",
+        "mime":  "image/jpeg"
+    },
+    {
+        "file":  "assets/images/Cinematic_slow_motion_202604151851.mp4",
+        "url":  "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290988770-cinematic_slow_motion_202604151851.mp4",
+        "via":  "/api/upload",
+        "mime":  "video/mp4"
+    }
+]

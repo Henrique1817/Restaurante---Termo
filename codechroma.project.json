@@ -1,0 +1,68 @@
+{
+  "slug": "bella-assuncao",
+  "title": "Bella Assunção",
+  "summary": "Site institucional da Bella Assunção em Next.js, React e Tailwind CSS, com foco em gastronomia de alto padrão em São Bernardo do Campo.",
+  "highlights": [
+    "Hero com vídeo de background para valorizar a experiência visual da marca",
+    "Página inicial com seções de diferenciais, cardápio em destaque e contato",
+    "Página Sobre com história da casa e informações de funcionamento",
+    "Cardápio completo em abas com categorias organizadas e navegação responsiva"
+  ],
+  "links": {
+    "demo": "https://bella-assuncao.vercel.app",
+    "docs": "https://github.com/Henrique1817/bella-assuncao",
+    "repo": "https://github.com/Henrique1817/bella-assuncao"
+  },
+  "media": [
+    {
+      "type": "video",
+      "src": "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290988770-cinematic_slow_motion_202604151851.mp4",
+      "poster": "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290977209-close-up_of_a_202604151856-1-.jpeg",
+      "alt": "Video cinematico do ambiente e experiencia do restaurante",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "type": "image",
+      "src": "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290977209-close-up_of_a_202604151856-1-.jpeg",
+      "alt": "Close up of a 202604151856",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "type": "image",
+      "src": "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290978609-close-up_of_a_202604151856.jpeg",
+      "alt": "Close up of a 202604151856",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "type": "image",
+      "src": "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290982701-wide_cinematic_shot_202604151855-1-.jpeg",
+      "alt": "Wide cinematic shot 202604151855",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "type": "image",
+      "src": "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290984187-wide_cinematic_shot_202604151855.jpeg",
+      "alt": "Wide cinematic shot 202604151855",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "type": "image",
+      "src": "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290985777-a_signature_dish_202604151857.jpeg",
+      "alt": "A signature dish 202604151857",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "type": "image",
+      "src": "https://ixb1sa3dnw6eaaln.public.blob.vercel-storage.com/projects/restaurante-termo/1776290987264-a_signature_cocktail_202604151859.jpeg",
+      "alt": "A signature cocktail 202604151859",
+      "width": 1920,
+      "height": 1080
+    }
+  ]
+}
