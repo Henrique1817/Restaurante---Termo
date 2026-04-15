@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx serve . -p 3000",
     "dev": "npx live-server --port=3000 --open=/",
-    "build": "npm run minify-css && npm run minify-js",
+    "build": "npm run minify-css && npm run minify-js && node scripts/sync-public.cjs",
     "minify-css": "npx postcss assets/css/main.css -o assets/css/main.min.css --use cssnano",
     "minify-js": "npx terser assets/js/main.js -o assets/js/main.min.js",
     "lighthouse": "npx lighthouse http://localhost:3000 --view",
