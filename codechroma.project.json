@@ -1,17 +1,17 @@
 {
-  "slug": "bella-assuncao",
-  "title": "Bella Assunção",
-  "summary": "Site institucional da Bella Assunção em Next.js, React e Tailwind CSS, com foco em gastronomia de alto padrão em São Bernardo do Campo.",
+  "slug": "restaurante-termo",
+  "title": "Restaurante Brasa Viva",
+  "summary": "Restaurante Brasa Viva - Experiência gastronômica única com pratos tradicionais e contemporâneos",
   "highlights": [
     "Hero com vídeo de background para valorizar a experiência visual da marca",
-    "Página inicial com seções de diferenciais, cardápio em destaque e contato",
-    "Página Sobre com história da casa e informações de funcionamento",
-    "Cardápio completo em abas com categorias organizadas e navegação responsiva"
+    "Página inicial com seções de diferenciais, destaque de cardápio e contato",
+    "Página institucional com informações de funcionamento e proposta gastronômica",
+    "Cardápio em layout responsivo com navegação clara"
   ],
   "links": {
-    "demo": "https://bella-assuncao.vercel.app",
-    "docs": "https://github.com/Henrique1817/bella-assuncao",
-    "repo": "https://github.com/Henrique1817/bella-assuncao"
+    "demo": "https://Henrique1817.github.io/Restaurante---Termo/",
+    "docs": "https://github.com/Henrique1817/Restaurante---Termo",
+    "repo": "https://github.com/Henrique1817/Restaurante---Termo"
   },
   "media": [
     {
